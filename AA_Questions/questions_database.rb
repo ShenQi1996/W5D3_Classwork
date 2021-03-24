@@ -1,7 +1,7 @@
-require "sqlite3"
-require "singleton"
+require 'sqlite3'
+require 'singleton'
 
-class QuestionsDatabase <  SQLite3::Database
+class QuestionsDatabase < SQLite3::Database
    include Singleton
    
    def initialze
@@ -29,7 +29,8 @@ class Users
         SQL
         return nil if id.nil?
     
-        User.new(id.first) # play is stored in an array!
+        User.new(id.first) # id is stored in an array
+    end
 
     def initialize(options)
         @author_id = options['author_id']
@@ -58,94 +59,92 @@ class Users
           WHERE
             author_id = ?
         SQL
-      end
     end
-
 end
 
 
-class Questions
-    attr_accessor :questions_id, :title, :body , :author_id
-    def self.all
-        data = QuestionsDatabase.instance.execute("SELECT * FROM questions")
-        data.map { |datum| Questions.new(datum) }
+# class Questions
+#     attr_accessor :questions_id, :title, :body , :author_id
+#     def self.all
+#         data = QuestionsDatabase.instance.execute("SELECT * FROM questions")
+#         data.map { |datum| Questions.new(datum) }
 
-    end
+#     end
 
-    def initialize(attribute)
-      @attribute = attribute
-    end
+#     def initialize(attribute)
+#       @attribute = attribute
+#     end
 
-    def create
+#     def create
 
-    end
+#     end
     
-    def update
+#     def update
 
-    end
+#     end
 
-end
+# end
 
-class Question_follows
-    attr_accessor :question_follows_id, :author_id, :questions_id
-    def self.all
-        data = QuestionsDatabase.instance.execute("SELECT * FROM questions_follows")
-        data.map { |datum| Question_follows.new(datum) }
-    end
+# class Question_follows
+#     attr_accessor :question_follows_id, :author_id, :questions_id
+#     def self.all
+#         data = QuestionsDatabase.instance.execute("SELECT * FROM questions_follows")
+#         data.map { |datum| Question_follows.new(datum) }
+#     end
 
-    def initialize(attribute)
-      @attribute = attribute
-    end
+#     def initialize(attribute)
+#       @attribute = attribute
+#     end
 
-    def create
+#     def create
 
-    end
+#     end
     
-    def update
+#     def update
 
-    end
+#     end
 
-end
+# end
 
-class Replies
-    attr_accessor :replies_id, :reply, :questions_id, :parent_id, :author_id
-    def self.all
-        data = QuestionsDatabase.instance.execute("SELECT * FROM replies")
-        data.map { |datum| Replies.new(datum) }
-    end
+# class Replies
+#     attr_accessor :replies_id, :reply, :questions_id, :parent_id, :author_id
+#     def self.all
+#         data = QuestionsDatabase.instance.execute("SELECT * FROM replies")
+#         data.map { |datum| Replies.new(datum) }
+#     end
 
-    def initialize(attribute)
-      @attribute = attribute
-    end
+#     def initialize(attribute)
+#       @attribute = attribute
+#     end
 
-    def create
+#     def create
 
-    end
+#     end
     
-    def update
+#     def update
 
-    end
+#     end
 
-end
+# end
 
 
-class Question_likes
-    attr_accessor :author_id, :questions_id, :likes
-    def self.all
-        data = QuestionsDatabase.instance.execute("SELECT * FROM question_likes")
-        data.map { |datum| Question_likes.new(datum) }
-    end
+# class Question_likes
+#     attr_accessor :author_id, :questions_id, :likes
+#     def self.all
+#         data = QuestionsDatabase.instance.execute("SELECT * FROM question_likes")
+#         data.map { |datum| Question_likes.new(datum) }
+#     end
 
-    def initialize(attribute)
-      @attribute = attribute
-    end
+#     def initialize(attribute)
+#       @attribute = attribute
+#     end
 
-    def create
+#     def create
 
-    end
+#     end
     
-    def update
+#     def update
 
-    end
+#     end
 
-end
+# end
