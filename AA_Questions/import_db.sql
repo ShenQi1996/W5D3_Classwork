@@ -1,5 +1,6 @@
 PRAGMA foreign_keys = ON;
 
+
 -- DROP DATABASE questions;
 
 CREATE TABLE users (
@@ -12,8 +13,8 @@ CREATE TABLE questions (
     questions_id INTEGER PRIMARY KEY,
     title CHARACTER NOT NULL,
     body CHARACTER NOT NULL,
-    au_id INTEGER,
-    FOREIGN KEY (au_id) REFERENCES users(author_id)
+    author_id INTEGER,
+    FOREIGN KEY (author_id) REFERENCES users(author_id)
 );
 
 CREATE TABLE question_follows (
