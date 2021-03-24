@@ -21,11 +21,45 @@ ul li a, figcaption a {
   color: inherit;
 }
 
+nav > ul li {
+  display: inline-block;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+}
+
 /* This selector selects only IMMEDIATE (1 level deep) image element children
 of the header element */
 header > img {
   width: 100px;
 }
+
+body {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.parent_flex {
+  display: flex;
+}
+
+aside {
+  width: 180px;
+  margin-right: 15px;
+}
+
+aside ul li, ol li {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+section {
+  width: 700px;
+}
+
+
 
 /* Selects all elements with the class attribute "ingredients-list" */
 .ingredients-list {
@@ -72,3 +106,31 @@ h2 + .user_review {
     border-top: 1px solid black;
 }
 
+.not-display > label {
+  display: none;
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#expertise {
+  margin: 25px;
+  width: 200px;
+}
+
+input {
+  margin: 5px;
+  width: 100px;
+}
+
+#review {
+  width: 50%;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
